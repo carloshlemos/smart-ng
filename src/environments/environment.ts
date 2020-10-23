@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:8080/smart-api/api',
+  sso: {
+    clientId: 'v2r2nAaJO5rIS0aM9kreTvWE5zYa',
+    serverUrl: 'https://localhost:9443',
+    issuer: '/oauth2/oidcdiscovery',
+    redirectUri: window.location.origin,
+    scope: 'openid profile email',
+    showDebugInformation: true,
+    responseType: 'code',
+  }
 };
 
 /*

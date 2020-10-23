@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "smart-ng"
+    }
+  },
+  "defaultProject": "smart-ng",
+  "cli": {
+    "analytics": "620e1a64-13ce-4901-8afb-e574226a58f4"
+  }
 }

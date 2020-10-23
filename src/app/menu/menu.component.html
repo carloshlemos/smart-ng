@@ -1,0 +1,24 @@
+<h2>Menu</h2>
+<form>
+    <input type="search" name="query" [(ngModel)]="query" (keyup.enter)="search()">
+    <button type="button" (click)="search()">Search</button>
+</form>
+<table *ngIf="searchResults">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let menu of searchResults; let i=index">
+            <td>{{menu.id}}</td>
+            <td>{{menu.name}}</td>
+            <td>{{menu.description}}</td>
+            <td>{{menu.price | currency}}<br />
+            </td>
+        </tr>
+    </tbody>
+</table>
