@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:8080/smart-api/api',
+  authorizationUrl: 'https://localhost:9443/api/identity/entitlement/decision',
   sso: {
     clientId: 'v2r2nAaJO5rIS0aM9kreTvWE5zYa',
     serverUrl: 'https://localhost:9443',
     issuer: '/oauth2/oidcdiscovery',
     redirectUri: window.location.origin,
-    scope: 'openid profile email',
+    scope: 'openid',
     showDebugInformation: true,
     responseType: 'code',
   }
