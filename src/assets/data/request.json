@@ -1,12 +1,5 @@
 {
     "Request": {
-        "Action": {
-            "Attribute": [{
-                    "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
-                    "Value": "BaixaBem.C"
-                }
-            ]
-        },
         "Resource": {
             "Attribute": [{
                     "AttributeId": "urn:oasis:names:tc:xacml:1.0:resource:resource-id",
