@@ -3,6 +3,7 @@ export interface AuthZ {
 }
 
 export interface Request {
+    Action:        AccessSubject;
     Resource:      AccessSubject;
     AccessSubject: AccessSubject;
 }

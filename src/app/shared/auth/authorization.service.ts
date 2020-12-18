@@ -17,6 +17,7 @@ export class AuthorizationService {
   constructor(private oauthService: OAuthService, private httpClient: HttpClient) { }
 
   preAuthorize(url: string): Observable<boolean> {
+    this.authz.Request.Action.Attribute = [{ AttributeId: authzRequest.Request.Action.Attribute[0].AttributeId, Value: "validarRota" }];
     this.authz.Request.Resource.Attribute = [{ AttributeId: authzRequest.Request.Resource.Attribute[0].AttributeId, Value: url }];
     this.authz.Request.AccessSubject.Attribute = [{ AttributeId: authzRequest.Request.AccessSubject.Attribute[0].AttributeId, Value: this.oauthService.getIdentityClaims()['sub'] }];
 

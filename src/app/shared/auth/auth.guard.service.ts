@@ -17,15 +17,15 @@ export class AuthGuard implements CanActivate {
     if (this.oauthService.hasValidIdToken()) {
       return this.authorization.preAuthorize(state.url).pipe(map((response: boolean) => {
         if (response) {
-            return true;
+          return true;
         }
         this.router.navigate(['/home']);
         return false;
-    }),catchError((error) => {
+      }), catchError((error) => {
         this.router.navigate(['/home']);
         console.log("Erro ao tentar verificar Authorização!!");
         return of(false);
-    }));      
+      }));
     }
   }
 }

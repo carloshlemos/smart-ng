@@ -1,16 +1,23 @@
 {
     "Request": {
+        "Action": {
+            "Attribute": [{
+                    "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                    "Value": "${actionId}"
+                }
+            ]
+        },
         "Resource": {
             "Attribute": [{
                     "AttributeId": "urn:oasis:names:tc:xacml:1.0:resource:resource-id",
-                    "Value": "/baixabem"
+                    "Value": "${resourceId}"
                 }
             ]
         },
         "AccessSubject": {
             "Attribute": [{
                     "AttributeId": "urn:oasis:names:tc:xacml:1.0:subject:subject-id",
-                    "Value": "carloslemos"
+                    "Value": "${subjectId}"
                 }
             ]
         }
