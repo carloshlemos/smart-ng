@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { SearchComponent } from './search/search.component';
 import { AuthGuard } from './shared';
+import { HasPermissionDirective } from './shared/auth/has-permission.directive';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     AppComponent,
     SearchComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    HasPermissionDirective
   ],
   imports: [
     BrowserModule,

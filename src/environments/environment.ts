@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:8080/smart-api/api',
   authorizationUrl: 'https://localhost:9443/api/identity/entitlement/decision',
+  apiPortalRS: 'http://localhost:3020',
   sso: {
     clientId: 'WHcfi1U0MJv5f5VbkJEmAE8Wa7Ea',
     serverUrl: 'https://localhost:9443',
