@@ -1,7 +1,7 @@
 <h2>Menu</h2>
 <form>
     <input type="search" name="query" [(ngModel)]="query" (keyup.enter)="search()">
-    <button *hasPermission="'Menu.C'" type="button" (click)="search()">Search</button>
+    <button *hasPermission="'Menu.Y'" type="button" (click)="search()">Search</button>
 </form>
 <table *ngIf="searchResults">
     <thead>

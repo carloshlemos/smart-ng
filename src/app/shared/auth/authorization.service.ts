@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
+import { Injectable } from '@angular/core';
+import { action, arrayToggle } from '@datorama/akita';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { AuthZ } from '../auth/auth.model';
+import { forkJoin, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import authzRequest from '../../../assets/data/request.json';
+import { environment } from '../../../environments/environment';
+import { AuthZ } from '../auth/auth.model';
+import { AuthStore } from './state/auth.store';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,9 @@ export class AuthorizationService {
 
   private authz: AuthZ = authzRequest;
 
-  constructor(private oauthService: OAuthService, private httpClient: HttpClient) { }
+  constructor(private oauthService: OAuthService,
+    private httpClient: HttpClient,
+    private authStore: AuthStore) { }
 
   preAuthorize(url: string): Observable<boolean> {
     this.authz.Request.Action.Attribute = [{ AttributeId: authzRequest.Request.Action.Attribute[0].AttributeId, Value: "validarRota" }];
@@ -26,6 +30,17 @@ export class AuthorizationService {
         'Content-Type': 'application/json'
       })
     };
+
+    let loadRolesUser = this.httpClient.get(`${environment.apiPortalRS}/acessos-usuario?login=${this.oauthService.getIdentityClaims()['sub']}&sistema=${environment.idSistemaPortal}`)
+
+    forkJoin([loadRolesUser]).subscribe(results => {
+      var roles = Object.keys(results[0]).map(function (actionIDIndex) {
+        let action = results[0][actionIDIndex];
+        return action.um_attr_value;
+      });
+      this.authStore._setState(state => ({ permissions: roles }))
+    });
+
     return this.httpClient.post(`${environment.authorizationUrl}/pdp`, this.authz, httpOptions)
       .pipe(
         map((response: JSON) => {

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthQuery extends Query<AuthState> {
+  
   constructor(protected store: AuthStore) {
     super(store);
   }

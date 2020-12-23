@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
+import { AuthorizationService } from './shared/auth/authorization.service';
 import { authConfig } from './shared/oauth2.config';
 
 @Component({
@@ -10,7 +11,7 @@ import { authConfig } from './shared/oauth2.config';
 export class AppComponent {
   title = 'smart-ng';
 
-  constructor(private oauthService: OAuthService) {
+  constructor(private oauthService: OAuthService, private authService: AuthorizationService) {
     this.oauthService.configure(authConfig);
 
     /** enable below validation only if jwks object is defined as part of oauthconfig obj */

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { AuthorizationService } from '../auth/authorization.service';
 
 @Injectable({
@@ -28,5 +28,7 @@ export class AuthGuard implements CanActivate {
             return of(false);
           }));
     }
+    this.oauthService.initImplicitFlow();
+    return of(false);
   }
 }
