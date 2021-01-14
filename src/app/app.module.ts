@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     OAuthModule.forRoot({
       resourceServer: {
-          allowedUrls: [environment.apiUrl],
+          allowedUrls: [environment.apiUrl, environment.apiPortalRS],
           sendAccessToken: true
       }
   })

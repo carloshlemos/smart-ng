@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/smart-api/api',
-  authorizationUrl: 'https://localhost:9443/api/identity/entitlement/decision',
-  apiPortalRS: 'http://localhost:8080/portal-api/api',
+  apiUrl: 'http://localhost:8090/smart-api/api',
+  authorizationUrl: 'https://localhost:9449/api/identity/entitlement/decision',
+  apiPortalRS: 'https://localhost:8243/portal-api/1.0.0/api',
   idSistemaPortal: 'SMART-NG',
   sso: {
-    clientId: 'v2r2nAaJO5rIS0aM9kreTvWE5zYa',
-    serverUrl: 'https://localhost:9443',
+    clientId: '7CzxYs06l2Dfs9PaPJYc_riA2Yca',
+    serverUrl: 'https://localhost:9449',
     issuer: '/oauth2/oidcdiscovery',
     redirectUri: window.location.origin,
-    scope: 'openid',
+    scope: 'openid email phone profile',
     showDebugInformation: true,
     responseType: 'code',
   }
