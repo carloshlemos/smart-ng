@@ -7,7 +7,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
    <div *ngIf="givenName" class="col-12 mt-2">
       <button (click)="logout()" class="btn btn-sm btn-outline-primary float-right">Logout</button>
       <h2>Welcome, {{givenName}}!</h2>
-      <p><a routerLink="/menu" routerLinkActive="active">Menu</a></p>
+      <p><a routerLink="/cliente" routerLinkActive="active">Cliente</a></p>
     </div>
 
     <div class="card mt-2" *ngIf="!givenName" style="text-align: center">

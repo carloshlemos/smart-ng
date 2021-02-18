@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8090/smart-api/api',
-  authorizationUrl: 'https://localhost:9449/api/identity/entitlement/decision',
-  apiPortalRS: 'https://localhost:8243/portal-api/1.0.0/api',
+  apiUrl: '/smart-api',
+  authorizationUrl: 'https://ssodesenv.go.gov.br/api/identity/entitlement/decision',
+  apiPortalRS: '/acesso-usuario-api',
   idSistemaPortal: 'SMART-NG',
   sso: {
-    clientId: '7CzxYs06l2Dfs9PaPJYc_riA2Yca',
-    serverUrl: 'https://localhost:9449',
+    clientId: '_om5Y7gaI8uVVKldiqe50blcZG0a',
+    serverUrl: 'https://ssodesenv.go.gov.br',
     issuer: '/oauth2/oidcdiscovery',
     redirectUri: window.location.origin,
-    scope: 'openid email phone profile',
+    scope: 'openid email profile',
     showDebugInformation: true,
     responseType: 'code',
   }

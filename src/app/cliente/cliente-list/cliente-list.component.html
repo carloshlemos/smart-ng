@@ -1,0 +1,30 @@
+<h2>Clientes</h2>
+<form>
+    <input type="search" name="query" [formControl]="searchClientesCtrl" (keyup.enter)="searchCliente()">
+    <button *hasPermission="'Cliente.I'" type="button" (click)="addCliente()">New</button>
+    <button *hasPermission="'Cliente.C'" type="button" (click)="searchCliente()">Search</button>
+</form>
+<table *ngIf="searchResults">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CPF</th>
+            <th>Phone</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of searchResults; let i=index">
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.numeroCPF}}</td>
+            <td>{{cliente.telefone}}</td>
+            <td>{{cliente.endereco}}</td>
+            <td>
+                <button class="btn btn-success" (click)="deleteCliente(cliente)"> Delete</button>
+                <button class="btn btn-success" (click)="editCliente(cliente)" style="margin-left: 20px;"> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
