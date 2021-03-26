@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config src/proxy.conf.js",
+    "start-dev": "ng serve --proxy-config src/proxy.conf.js --configuration=desenv",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

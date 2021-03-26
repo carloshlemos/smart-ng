@@ -22,8 +22,8 @@
             <td>{{cliente.telefone}}</td>
             <td>{{cliente.endereco}}</td>
             <td>
-                <button class="btn btn-success" (click)="deleteCliente(cliente)"> Delete</button>
-                <button class="btn btn-success" (click)="editCliente(cliente)" style="margin-left: 20px;"> Edit</button>
+                <button *hasPermission="'Cliente.E'" class="btn btn-success" (click)="deleteCliente(cliente)"> Delete</button>
+                <button *hasPermission="'Cliente.A'" class="btn btn-success" (click)="editCliente(cliente)" style="margin-left: 20px;"> Edit</button>
             </td>
         </tr>
     </tbody>
