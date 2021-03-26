@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { AuthorizationService } from './shared/auth/authorization.service';
-import { authConfig } from './shared/oauth2.config';
+import { AuthorizationService } from './core/auth/authorization.service';
+import { authConfig } from './core/oauth2.config';
 
 @Component({
   selector: 'app-root',

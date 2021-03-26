@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { action, arrayToggle } from '@datorama/akita';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { forkJoin, Observable } from 'rxjs';
@@ -18,7 +19,8 @@ export class AuthorizationService {
 
   constructor(private oauthService: OAuthService,
     private httpClient: HttpClient,
-    private authStore: AuthStore) { }
+    private authStore: AuthStore,
+    private router: Router) { }
 
   preAuthorize(url: string): Observable<boolean> {
     this.authz.Request.Action.Attribute = [{ AttributeId: authzRequest.Request.Action.Attribute[0].AttributeId, Value: "validarRota" }];
@@ -47,7 +49,7 @@ export class AuthorizationService {
           if (response['Response'][0].Decision.includes("Permit")) {
             return true;
           } else {
-            console.log("Acesso Negado!!!");
+            this.router.navigateByUrl(`/403`);
             return false;
           }
         }));
