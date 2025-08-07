@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: '/smart-api',
-  authorizationUrl: 'https://ssodesenv.go.gov.br:443/api/identity/entitlement/decision',
+  authorizationUrl: 'https://ssodesenv.go.gov.br/api/identity/entitlement/decision',
   apiPortalRS: '/acesso-usuario-api',
   idSistemaPortal: 'SMART-NG',
   sso: {
