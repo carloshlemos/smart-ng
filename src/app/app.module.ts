@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,12 +16,14 @@ import { P404Component } from './error/404.component';
 import { AuthGuard } from './core/auth/auth.guard.service';
 import { HasPermissionDirective } from './core/auth/has-permission.directive';
 import { HomeComponent } from './home/home.component';
+import {SensitiveCallbackComponent} from './sensitive-callback/sensitive-callback';
 
 const appRoutes: Routes = [
   { path: 'cliente', component: ClienteListComponent, canActivate: [AuthGuard] },
   { path: 'add-cliente', component: ClienteAddComponent },
   { path: 'edit-cliente', component: ClienteEditComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'sensitive-callback', component: SensitiveCallbackComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '403', component: P403Component, data: { title: 'Forbidden!!' } },
   { path: '**', component: P404Component }
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     HasPermissionDirective,
     ClienteAddComponent,
     ClienteEditComponent,
+    SensitiveCallbackComponent,
     P403Component,
     P404Component
   ],
