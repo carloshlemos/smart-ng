@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   apiUrl: '/smart-api',
-  authorizationUrl: 'https://ssodesenv.go.gov.br/api/identity/entitlement/decision',
+  authorizationUrl: 'https://ssodesenv.go.gov.br:9444/api/identity/entitlement/decision',
   apiPortalRS: '/acesso-usuario-api',
   idSistemaPortal: 'SMART-NG',
   sso: {
-    clientId: '_om5Y7gaI8uVVKldiqe50blcZG0a',
-    serverUrl: 'https://ssodesenv.go.gov.br',
+    clientId: 'D87MC3PsibN1fEaa1Y4RcgmPXiAa',
+    serverUrl: 'https://ssodesenv.go.gov.br:9444',
     issuer: '/oauth2/oidcdiscovery',
     redirectUri: window.location.origin,
     scope: 'openid email profile',
