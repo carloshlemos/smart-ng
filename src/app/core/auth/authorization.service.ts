@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { action, arrayToggle } from '@datorama/akita';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -26,6 +25,10 @@ export class AuthorizationService {
     this.authz.Request.Action.Attribute = [{ AttributeId: authzRequest.Request.Action.Attribute[0].AttributeId, Value: "validarRota" }];
     this.authz.Request.Resource.Attribute = [{ AttributeId: authzRequest.Request.Resource.Attribute[0].AttributeId, Value: url }];
     this.authz.Request.AccessSubject.Attribute = [{ AttributeId: authzRequest.Request.AccessSubject.Attribute[0].AttributeId, Value: this.oauthService.getIdentityClaims()['sub'] }];
+    this.authz.Request.Environment.Attribute = [{
+      AttributeId: authzRequest.Request.Environment.Attribute[0].AttributeId,
+      Value: environment.idSistemaPortal
+    }];
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -33,7 +36,7 @@ export class AuthorizationService {
       })
     };
 
-    let loadRolesUser = this.httpClient.get(`${environment.apiPortalRS}/acessos-usuario?login=${this.oauthService.getIdentityClaims()['sub']}&sistema=${environment.idSistemaPortal}`)
+    let loadRolesUser = this.httpClient.get(`${environment.apiPortalRS}/acessos?codigo=${this.oauthService.getIdentityClaims()['sub']}&siglaSistema=${environment.idSistemaPortal}`)
 
     forkJoin([loadRolesUser]).subscribe(results => {
       var roles = Object.keys(results[0]).map(function (actionIDIndex) {

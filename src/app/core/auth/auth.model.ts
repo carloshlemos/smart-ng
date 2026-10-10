@@ -1,18 +1,23 @@
 export interface AuthZ {
-    Request: Request;
+  Request: Request;
 }
 
 export interface Request {
-    Action:        AccessSubject;
-    Resource:      AccessSubject;
-    AccessSubject: AccessSubject;
+  Action: AccessSubject;
+  Resource: AccessSubject;
+  AccessSubject: AccessSubject;
+  Environment: Environment;
 }
 
 export interface AccessSubject {
-    Attribute: Attribute[];
+  Attribute: Attribute[];
+}
+
+export interface Environment {
+  Attribute: Attribute[];
 }
 
 export interface Attribute {
-    AttributeId: string;
-    Value:       string;
+  AttributeId: string;
+  Value: string;
 }

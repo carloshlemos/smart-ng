@@ -1,25 +1,33 @@
 {
-    "Request": {
-        "Action": {
-            "Attribute": [{
-                    "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
-                    "Value": "${actionId}"
-                }
-            ]
-        },
-        "Resource": {
-            "Attribute": [{
-                    "AttributeId": "urn:oasis:names:tc:xacml:1.0:resource:resource-id",
-                    "Value": "${resourceId}"
-                }
-            ]
-        },
-        "AccessSubject": {
-            "Attribute": [{
-                    "AttributeId": "urn:oasis:names:tc:xacml:1.0:subject:subject-id",
-                    "Value": "${subjectId}"
-                }
-            ]
+  "Request": {
+    "Action": {
+      "Attribute": [{
+        "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+        "Value": "${actionId}"
+      }
+      ]
+    },
+    "Resource": {
+      "Attribute": [{
+        "AttributeId": "urn:oasis:names:tc:xacml:1.0:resource:resource-id",
+        "Value": "${resourceId}"
+      }
+      ]
+    },
+    "AccessSubject": {
+      "Attribute": [{
+        "AttributeId": "urn:oasis:names:tc:xacml:1.0:subject:subject-id",
+        "Value": "${subjectId}"
+      }
+      ]
+    },
+    "Environment": {
+      "Attribute": [
+        {
+          "AttributeId": "urn:oasis:names:tc:xacml:1.0:environment:environment-id",
+          "Value": "${environmentid}"
         }
+      ]
     }
+  }
 }
